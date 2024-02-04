@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+
+<h1>Blog com Spring Boot</h1>
+
+<!-- Loop para exibir posts -->
+<div th:each="post : ${posts}">
+    <a th:href="@{/blog/post/{id}(id=${post.id})}"><h2 th:text="${post.title}">Titulo</h2></a>
+    <p th:text="${post.content}">Content-Body</p>
+</div>
+
+<!-- Links para operações -->
+<a th:href="@{/blog/create}">Create New Post</a>
+<a th:href="@{/blog/edit}">Edit First Post</a>
+<a th:href="@{/blog/delete}">Delete First Post</a>
+
+</body>
+</html>
